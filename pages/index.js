@@ -1,9 +1,24 @@
+import { Geist, Geist_Mono } from "next/font/google";
+import Tasks from "./tasks";
+const geistSans = Geist({
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
+});
+
 export default function Home() {
     return (
-        <div className="flex items-center justify-center h-screen bg-gray-100">
-            <h1 className="text-3xl font-bold text-gray-800">
-                Welcome to Task Manager
-            </h1>
+        <div
+            className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
+        >
+            <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+                <Tasks />
+            </main>
+            <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
         </div>
     );
 }
